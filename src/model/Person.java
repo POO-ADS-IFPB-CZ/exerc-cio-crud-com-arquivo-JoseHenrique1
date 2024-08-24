@@ -1,12 +1,15 @@
 package model;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class Person {
+public class Person implements Serializable {
+    private long serialVersionUID;
     private String name;
     private String email;
 
     public Person(String name, String email) {
+        this.serialVersionUID = 1L;
         this.name = name;
         this.email = email;
     }
@@ -23,6 +26,14 @@ public class Person {
     @Override
     public int hashCode() {
         return Objects.hashCode(email);
+    }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                '}';
     }
 
     public String getName() {
